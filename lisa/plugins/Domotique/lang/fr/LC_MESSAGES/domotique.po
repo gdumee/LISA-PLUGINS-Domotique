@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: Guillaume\n"
+"POT-Creation-Date: 2014-05-13 17:24+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Guillaume <mlml>\n"
+"Language-Team: FR <mlml>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../../modules/Domotique.py
+#---------error
+msgid "problem contacting server"
+msgstr "Il y a eu un problème lors de la connexion au serveur. "
+
+
+msgid "dont understand"
+msgstr "(10,\"Je n'ai pas compris ce que vous avez demandé.\"), "
+"(10,\"Pouvez-vous répétez.\"),"
+"(10,\"Je n'ai pas compris ce que je devais faire.\"), "
+
+
+#---------------------on-offDomo
+msgid "I do"
+msgstr "(10,\"{on} {obj} {loc}\"),"
+"(10,\"{on} {obj}.\"),"
+"(6,\"je le fais.\"),"
+"(6,\"c'est fait.\")"
+
+
+msgid "on"
+msgstr "(8,\"je démarre\"),"
+"(10,\"j'allume\"),"
+"(6,\"je mets en route\"),"
+"(6,\"je mets en marche\"),"
+"(6,\"j'active\")"
+
+
+msgid "off"
+msgstr "(8,\"j'éteins\"),"
+"(10,\"j'arrete\"),"
+"(6,\"je coupe\"),"
+"(4,\"je mets hors tension\")"
+
+msgid "all"
+msgstr "(8,\" partout \"),"
+"(10,\" dans toute la maison\"),"
+"(10,\" \")"
+
+msgid "inside"
+msgstr " dans "
+
+#---------------------getDomo
+msgid "status"
+msgstr "(10,\"{obj} {loc} sont {stat}.\"),"
+"(10,\"{obj} sont {stat}.\"),"
+"(8,\"{loc} {obj} sont {stat}\")"
+
+
+msgid "rnd"
+msgstr "(10,\"allumé\"),"
+"(6,\"ouvert\"),"
+"(10,\"en marche\"),"
+"(10,\"en fonctionnement\"),"
+"(10,\"arreté\"),"
+"(6,\"fermé\"),"
+"(10,\"éteins\"),"
+"(10,\"à l'arret\")"
+
+

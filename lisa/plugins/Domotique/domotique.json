@@ -1,0 +1,28 @@
+{
+    "name": "Domotique",
+    "version": "0.1",
+    "author": "Guillaume Audet",
+    "enabled": 1,
+    "pypi-url": "https://pypi.python.org/pypi/lisa-plugin-Minuteur",
+    "github-url": "https://raw.githubusercontent.com/Guillaume/LISA-PLUGINS-Minuteur/master/lisa/plugins/Minuteur/minuteur.json",
+    "description": [
+        {"lang": "fr", "description": "Ce plugin envoi des commandes domotiques vers une la centrale domotique"}
+    ],
+    "lang": ["fr"],
+    "configuration": {
+        "intents": {
+            "domo_set": {
+                "method": "setDomo",
+                "corpus": {}
+            },
+           "domo_on_off": {
+                "method": "on_offDomo",
+                "corpus": {}
+            },
+            "domo_get": {
+                "method": "getDomo",
+                "corpus": {}
+            }
+        }
+    }
+}
