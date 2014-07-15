@@ -1,10 +1,10 @@
 {
     "name": "Domotique",
-    "version": "0.1",
+    "version": "1.0.0",
     "author": "Guillaume Audet",
     "enabled": 1,
-    "pypi-url": "https://pypi.python.org/pypi/lisa-plugin-Minuteur",
-    "github-url": "https://raw.githubusercontent.com/Guillaume/LISA-PLUGINS-Minuteur/master/lisa/plugins/Minuteur/minuteur.json",
+    "pypi-url": "xxx",
+    "github-url": "xxxx",
     "description": [
         {"lang": "fr", "description": "Ce plugin envoi des commandes domotiques vers une la centrale domotique"}
     ],
