@@ -1,28 +1,51 @@
+#-----------------------------------------------------------------------------
+# copyright   : Neotique
+#-----------------------------------------------------------------------------
 msgid ""
-msgstr ""
-"Project-Id-Version: 0.1\n"
-"Report-Msgid-Bugs-To: Guillaume\n"
-"POT-Creation-Date: 2014-05-13 17:24+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Guillaume <mlml>\n"
-"Language-Team: FR <mlml>\n"
-"Language: fr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+msgstr  "Last-Translator: Gilles Dumée <gilles.dumee@neotique.fr>\n"
+        "Language-Team: Neotique>\n"
+        "Language: fr\n"
+        "MIME-Version: 1.0\n"
+        "Content-Type: text/plain; charset=UTF-8\n"
+        "Content-Transfer-Encoding: 8bit\n"
 
-#: ../../modules/Domotique.py
+#-----------------------------------------------------------------------------
+# Plugin description
+#-----------------------------------------------------------------------------
+msgid "i_can_plugin"
+msgstr  "(10, \"Je peux commander votre installation domotique.\"),"
+        "(10, \"Je peux donner des ordes à votre installation domotique.\"),"
 
-#---------error
+msgid "on_offDomo"
+msgstr  "(10, \"Je peux éteindre ou allumer les lampes.\"),"
+        "(10, \"Je peux ouvir ou fermer vos volets.\"),"
+
+
+msgid "getDomo"
+msgstr  "(10, \"Je peux vous informer de l'état de votre maison.\"),"
+        "(10, \"Vous pouvez me demander si des lumiéres sont allumées.\"),"
+
+#-----------------------------------------------------------------------------
+# Error
+#-----------------------------------------------------------------------------
+
 msgid "problem contacting server"
 msgstr  "Il y a eu un problème lors de la connexion au serveur"
+
+msgid "error"
+msgstr  "(10, \"Il y a eu une erreur.\"),"
 
 msgid "dont understand"
 msgstr  "(10, \"Je n'ai pas compris ce que vous avez demandé\"),"
         "(10, \"Pouvez-vous répétez\"),"
         "(10, \"Je n'ai pas compris ce que je devais faire\"),"
+        
+        
+        
+#-----------------------------------------------------------------------------
+# on-offDomo
+#-----------------------------------------------------------------------------
 
-#---------------------on-offDomo
 msgid "I do"
 msgstr  "(10, \"{on} {obj} {loc}\"),"
         "(10, \"{on} {obj}\"),"
@@ -50,7 +73,10 @@ msgstr  "(8,  \" partout \"),"
 msgid "inside"
 msgstr " dans "
 
-#---------------------getDomo
+#-----------------------------------------------------------------------------
+# getDomo
+#-----------------------------------------------------------------------------
+
 msgid "status"
 msgstr  "(10, \"{obj} {loc} sont {stat}\"),"
         "(10, \"{obj} sont {stat}\"),"

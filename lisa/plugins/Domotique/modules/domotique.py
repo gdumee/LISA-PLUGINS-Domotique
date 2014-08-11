@@ -19,7 +19,7 @@ from lisa.server.plugins.IPlugin import IPlugin
 import gettext
 import inspect
 import os, sys
-from lisa.Neotique.NeoTrans import NeoTrans
+
 
 
 #-----------------------------------------------------------------------------
@@ -30,11 +30,8 @@ class Domotique(IPlugin):
     Plugin main class
     """
     def __init__(self):
-        super(Domotique, self).__init__()
-        self.configuration_plugin = self.mongo.lisa.plugins.find_one({"name": "Domotique"})
-        self.path = os.path.realpath(os.path.abspath(os.path.join(os.path.split(inspect.getfile(inspect.currentframe()))[0],os.path.normpath("../lang/"))))
-        self._ = NeoTrans(domain='domotique', localedir=self.path, fallback=True, languages=[self.configuration_lisa['lang']]).Trans
-
+        super(Domotique, self).__init__(plugin_name = "Domotique")
+        
     #-----------------------------------------------------------------------------
     #              Publics  Fonctions
     #-----------------------------------------------------------------------------
@@ -45,22 +42,27 @@ class Domotique(IPlugin):
         #print jsonInput
 
         # Get informations
-        on =  u''  # on or off
+        onoff =  u''  # on or off
         loc = u'all'
         obj = u''  #lights, windows, door....
         try:
-            on = (jsonInput['outcome']['entities']['on_off']['value']).encode('utf8')
-            obj = (jsonInput['outcome']['entities']['message_subject']['value']).encode('utf8')
-            loc = (sonInput['outcome']['entities']['location']['value']).encode('utf8')
+            if 'on_off' in jsonInput['outcome']['entities']:
+                onoff = (jsonInput['outcome']['entities']['on_off']['value'])
+            if 'message_subject' in jsonInput['outcome']['entities']:
+                obj = (jsonInput['outcome']['entities']['message_subject']['value'])
+            if 'location' in jsonInput['outcome']['entities']:
+                loc = (jsonInput['outcome']['entities']['location']['value'])      
         except UnicodeEncodeError:
             return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body':"Erreur d'encodage du texte" }
         except:
-            if on =="" or obj =="" :
-                return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body': self._("dont understand") }
-            #if loc -> non   fatal
+            return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body': self._("error") }
+        
+        if onoff =="" :
+            return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body': self._("dont understand") }
+        #if loc or obj ==""  -> non   fatal
 
         if __name__ == "__main__" :
-            print '{0:10} {1:10}'.format('on',on)
+            print '{0:10} {1:10}'.format('on',onoff)
             print '{0:10} {1:10}'.format('loc',loc)
             print '{0:10} {1:10}'.format('obj',obj)
 
@@ -70,7 +72,7 @@ class Domotique(IPlugin):
             loc = self._('all')
         else :
             loc = self._('inside') + loc
-        message = self._('I do').format(on = self._(on), obj = obj, loc = loc)
+        message = self._('I do').format(on = self._(onoff), obj = obj, loc = loc)
                 
         return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body': message }
 
@@ -92,14 +94,15 @@ class Domotique(IPlugin):
         loc =u'all'
         obj=u''
         try:
-            obj = jsonInput['outcome']['entities']['message_subject']['value'].encode('utf8')
-            loc = jsonInput['outcome']['entities']['location']['value'].encode('utf8')
+            if 'message_subject' in jsonInput['outcome']['entities']:
+                obj = (jsonInput['outcome']['entities']['message_subject']['value'])
+            if 'location' in jsonInput['outcome']['entities']:
+                loc = (jsonInput['outcome']['entities']['location']['value'])
         except UnicodeEncodeError:
             return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body':"Erreur d'encodage du texte" }
         except:
-            if on =="" or obj =="" :
-                return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body': self._("dont understand") }
-            #if loc  non   fatal
+            return {"plugin": __name__.split('.')[-1], "method": sys._getframe().f_code.co_name, 'body': self._("error") }
+            
 
         if __name__ == "__main__" :
             print '{0:10} {1:10}'.format('loc',loc)
@@ -134,8 +137,8 @@ if __name__ == "__main__" :
 
     essai = Domotique() #class init
 
-    #ret = essai.on_offDomo(jsonInput)
-    ret = essai.getDomo(jsonInput)
+    ret = essai.on_offDomo(jsonInput)
+    #ret = essai.getDomo(jsonInput)
     print ret['body']
 
 # --------------------- End of domotique.py  ---------------------
